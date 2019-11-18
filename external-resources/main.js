@@ -55,7 +55,8 @@ function writeToDocument(url) {
             });
             tableRows.push(`<tr>${dataRow}</tr>`);
         });
-
-            el.innerHTML = `<table>${tableHeaders}${tableRows}</table>${pagination}`;
+// the .replace is a regular expression the /,/ says search for a comma the g says find all commas not just the first one 
+//and the bit after the /,/g, is the 2nd part of the expressions which is what the comma will be replace with, in this case blanks
+            el.innerHTML = `<table>${tableHeaders}${tableRows}</table>${pagination}`.replace(/,/g, "");
     });
 }
